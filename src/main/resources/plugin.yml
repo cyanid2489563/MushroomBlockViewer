@@ -1,0 +1,9 @@
+name: MushroomBlockViewer
+version: @version@
+main: team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer
+api-version: 1.13
+load: STARTUP
+authors: [ Cyanide ]
+description: 蘑菇塊檢視器
+commands:
+  mbv:
