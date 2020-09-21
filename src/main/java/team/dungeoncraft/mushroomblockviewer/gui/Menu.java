@@ -16,6 +16,7 @@ import team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer;
 public final class Menu {
 
     private final Gui gui = new Gui(MushroomBlockViewer.plugin, 6, "蘑菇方塊檢視器");
+    private int offset = 1;
 
     public Menu() {
         setUpMenu();
@@ -41,8 +42,7 @@ public final class Menu {
         StaticPane staticPane = new StaticPane(0,0, 9, 6);
         staticPane.setOnClick(inventoryClickEvent -> inventoryClickEvent.setCancelled(true));
 
-        int counter = (page * 45) + 1;
-        if (page == 0) counter = 1;
+        int counter = (page * 45) + offset;
 
         for (int y = 0; y < 5; y++) {
             for (int x = 0; x < 9; x++) {
@@ -57,8 +57,9 @@ public final class Menu {
                 staticPane.addItem(new GuiItem(itemStack, inventoryClickEvent ->
                         inventoryClickEvent.getWhoClicked().getInventory().addItem(itemStack)), x, y);
                 counter++;
-                if (counter == 54) {
+                if (counter == 54 || counter == 84) {
                     counter++;
+                    offset++;
                     continue;
                 }
                 if (counter > 160) break;
