@@ -26,8 +26,6 @@ public final class BlockPlace implements Listener {
         Player player = event.getPlayer();
         ItemStack itemStack = player.getInventory().getItemInMainHand();
 
-        player.getInventory().setHelmet(new ItemStack(Material.IRON_HELMET));
-
         if (itemStack.getType().equals(Material.TURTLE_HELMET) && ((Damageable) itemStack.getItemMeta()).hasDamage()) {
             Block relative = block.getRelative(event.getBlockFace());
             int blockId = ((Damageable) itemStack.getItemMeta()).getDamage();
