@@ -159,8 +159,8 @@ public final class BlockPlace implements Listener {
             case  97: faces = new Boolean[]{ true , true , true , true , false, false }; break;
             case  98: faces = new Boolean[]{ true , true , true , true , false, true  }; break;
             case  99: faces = new Boolean[]{ true , true , true , true , true , false }; break;
-            case  100: faces = new Boolean[]{ false, false, false, false, false, true  }; break;
             // MUSHROOM_STEM
+            case 100: faces = new Boolean[]{ false, false, false, false, false, true  }; break;
             case 101: faces = new Boolean[]{ false, false, false, false, true , false }; break;
             case 102: faces = new Boolean[]{ false, false, false, false, true , true  }; break;
             case 103: faces = new Boolean[]{ false, false, false, true , false, false }; break;
