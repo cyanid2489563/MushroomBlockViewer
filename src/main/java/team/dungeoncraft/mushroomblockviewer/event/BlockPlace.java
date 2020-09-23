@@ -32,7 +32,7 @@ public final class BlockPlace implements Listener {
 
             if (blockId < 54) {
                 relative.setType(Material.BROWN_MUSHROOM_BLOCK);
-            } else if (blockId < 101) {
+            } else if (blockId < 100) {
                 relative.setType(Material.RED_MUSHROOM_BLOCK);
             } else if (blockId < 161) {
                 relative.setType(Material.MUSHROOM_STEM);
