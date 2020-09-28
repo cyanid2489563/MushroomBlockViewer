@@ -15,6 +15,7 @@ public class CommandManager implements CommandExecutor {
 
     public CommandManager(MushroomBlockViewer plugin) {
         Objects.requireNonNull(plugin.getCommand(command)).setExecutor(this);
+        Objects.requireNonNull(plugin.getCommand(command)).setTabCompleter(new CommandTabCompleter());
     }
 
     @Override

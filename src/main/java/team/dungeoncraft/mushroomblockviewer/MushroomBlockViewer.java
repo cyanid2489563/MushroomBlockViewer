@@ -2,6 +2,7 @@ package team.dungeoncraft.mushroomblockviewer;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import team.dungeoncraft.mushroomblockviewer.command.CommandManager;
+import team.dungeoncraft.mushroomblockviewer.event.BlockCopy;
 import team.dungeoncraft.mushroomblockviewer.event.BlockPhysics;
 import team.dungeoncraft.mushroomblockviewer.event.BlockPlace;
 
@@ -28,5 +29,6 @@ public final class MushroomBlockViewer extends JavaPlugin {
     private void setUpEvents() {
         plugin.getServer().getPluginManager().registerEvents(new BlockPlace(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new BlockPhysics(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new BlockCopy(), plugin);
     }
 }
