@@ -46,13 +46,7 @@ public final class Menu {
 
         for (int y = 0; y < 5; y++) {
             for (int x = 0; x < 9; x++) {
-                ItemStack itemStack = new ItemStack(Material.TURTLE_HELMET);
-
-                ItemMeta itemMeta = itemStack.getItemMeta();
-                itemMeta.setUnbreakable(true);
-                ((Damageable) itemMeta).setDamage(counter);
-                itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_DESTROYS);
-                itemStack.setItemMeta(itemMeta);
+                ItemStack itemStack = getCustomBlockItem(counter);
 
                 staticPane.addItem(new GuiItem(itemStack, inventoryClickEvent ->
                         inventoryClickEvent.getWhoClicked().getInventory().addItem(itemStack)), x, y);
@@ -82,5 +76,16 @@ public final class Menu {
                     gui.update();
                 }), 0, 5);
         return staticPane;
+    }
+
+    public static ItemStack getCustomBlockItem(int counter) {
+        ItemStack itemStack = new ItemStack(Material.TURTLE_HELMET);
+
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setUnbreakable(true);
+        ((Damageable) itemMeta).setDamage(counter);
+        itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_DESTROYS);
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
     }
 }

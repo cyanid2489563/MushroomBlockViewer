@@ -8,10 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.Damageable;
-import org.bukkit.inventory.meta.ItemMeta;
+import team.dungeoncraft.mushroomblockviewer.gui.Menu;
 import team.dungeoncraft.mushroomblockviewer.utility.Utility;
 
 public final class BlockCopy implements Listener {
@@ -33,15 +31,6 @@ public final class BlockCopy implements Listener {
     }
 
     private ItemStack getItemStack(int id) {
-        ItemStack itemStack = new ItemStack(Material.TURTLE_HELMET);
-
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setUnbreakable(true);
-        ((Damageable) itemMeta).setDamage(id);
-        itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_DESTROYS);
-        itemStack.setItemMeta(itemMeta);
-        return itemStack;
+        return Menu.getCustomBlockItem(id);
     }
-
-
 }
