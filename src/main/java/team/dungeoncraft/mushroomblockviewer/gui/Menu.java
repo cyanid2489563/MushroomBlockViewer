@@ -11,12 +11,15 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
+import team.dungeoncraft.mushroomblockviewer.CustomBlockManager;
 import team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer;
+import team.dungeoncraft.mushroomblockviewer.utility.CustomBlockConverter;
 
 public final class Menu {
 
     private final Gui gui = new Gui(MushroomBlockViewer.plugin, 6, "蘑菇方塊檢視器");
     private int offset = 1;
+    private final CustomBlockManager customBlockManager = new CustomBlockManager();
 
     public Menu() {
         setUpMenu();
@@ -46,7 +49,8 @@ public final class Menu {
 
         for (int y = 0; y < 5; y++) {
             for (int x = 0; x < 9; x++) {
-                ItemStack itemStack = getCustomBlockItem(counter);
+                ItemStack itemStack = CustomBlockConverter.convertCustomBlockToItemStack(
+                                customBlockManager.getCustomBlock(counter));
 
                 staticPane.addItem(new GuiItem(itemStack, inventoryClickEvent ->
                         inventoryClickEvent.getWhoClicked().getInventory().addItem(itemStack)), x, y);
@@ -79,7 +83,7 @@ public final class Menu {
     }
 
     public static ItemStack getCustomBlockItem(int counter) {
-        ItemStack itemStack = new ItemStack(Material.TURTLE_HELMET);
+        ItemStack itemStack = new ItemStack(Material.TURTLE_HELMET);    // 自訂義方塊的 Item 是用海龜頭盔做的
 
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setUnbreakable(true);
