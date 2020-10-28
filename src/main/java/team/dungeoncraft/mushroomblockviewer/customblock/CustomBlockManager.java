@@ -1,4 +1,4 @@
-package team.dungeoncraft.mushroomblockviewer;
+package team.dungeoncraft.mushroomblockviewer.customblock;
 
 import java.util.HashMap;
 import java.util.HashSet;

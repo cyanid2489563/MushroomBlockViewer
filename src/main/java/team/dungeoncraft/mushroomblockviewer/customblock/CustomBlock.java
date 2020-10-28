@@ -1,4 +1,4 @@
-package team.dungeoncraft.mushroomblockviewer;
+package team.dungeoncraft.mushroomblockviewer.customblock;
 
 public final class CustomBlock {
 

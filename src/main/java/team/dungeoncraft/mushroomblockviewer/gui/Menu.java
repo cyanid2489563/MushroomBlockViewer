@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
-import team.dungeoncraft.mushroomblockviewer.CustomBlockManager;
+import team.dungeoncraft.mushroomblockviewer.customblock.CustomBlockManager;
 import team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer;
 import team.dungeoncraft.mushroomblockviewer.utility.CustomBlockConverter;
 
