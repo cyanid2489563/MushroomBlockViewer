@@ -9,10 +9,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import team.dungeoncraft.mushroomblockviewer.gui.Menu;
+import team.dungeoncraft.mushroomblockviewer.customblock.CustomBlock;
+import team.dungeoncraft.mushroomblockviewer.customblock.CustomBlockManager;
+import team.dungeoncraft.mushroomblockviewer.utility.CustomBlockConverter;
 import team.dungeoncraft.mushroomblockviewer.utility.Utility;
 
 public final class BlockCopy implements Listener {
+
+    private final CustomBlockManager customBlockManager = new CustomBlockManager();
 
     @EventHandler
     public void onPlayerInteractEvent(PlayerInteractEvent event) {
@@ -31,6 +35,7 @@ public final class BlockCopy implements Listener {
     }
 
     private ItemStack getItemStack(int id) {
-        return Menu.getCustomBlockItem(id);
+        CustomBlock customBlock = customBlockManager.getCustomBlock(id);
+        return CustomBlockConverter.convertCustomBlockToItemStack(customBlock);
     }
 }
