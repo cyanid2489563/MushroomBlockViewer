@@ -1,17 +1,24 @@
 package team.dungeoncraft.mushroomblockviewer.customblock;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
+import team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer;
+
+import java.util.*;
 
 public final class CustomBlockManager {
 
     private final Map<Integer, CustomBlock> customBlocks = new HashMap<>();
 
     public CustomBlockManager() {
-        for (int i = 0; i < 162; i++) {
-            customBlocks.put(i, new CustomBlock(i, "方塊編號: " + i));
+        YamlConfiguration config = MushroomBlockViewer.plugin.getConfigManager().getBlocksConfig();
+
+        for (String key : config.getConfigurationSection("customBlocks").getKeys(false)) {
+            int id = Integer.parseInt(key);
+            ConfigurationSection blockSection = config.getConfigurationSection("customBlocks." + key);
+            String name = blockSection.getString("name");
+            List<String> lore = blockSection.getStringList("lore");
+            customBlocks.put(id, new CustomBlock(id, name, lore));
         }
     }
 
@@ -21,5 +28,9 @@ public final class CustomBlockManager {
 
     public CustomBlock getCustomBlock(int id) {
         return customBlocks.get(id);
+    }
+
+    public void changeCustomBlockName(int id, String name) {
+        getCustomBlock(id).setName(name);
     }
 }

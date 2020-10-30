@@ -14,6 +14,7 @@ public class CustomBlockConverter {
 
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(customBlock.getName());
+        itemMeta.setLore(customBlock.getLore());
         ((Damageable) itemMeta).setDamage(customBlock.getId());
         itemMeta.setUnbreakable(true);
         itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_DESTROYS);

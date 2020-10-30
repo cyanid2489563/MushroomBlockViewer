@@ -9,6 +9,7 @@ import team.dungeoncraft.mushroomblockviewer.event.BlockPlace;
 public final class MushroomBlockViewer extends JavaPlugin {
 
     public static MushroomBlockViewer plugin;
+    private ConfigManager configManager;
 
     @Override
     public void onLoad() {
@@ -17,6 +18,7 @@ public final class MushroomBlockViewer extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        configManager = new ConfigManager();
         new CommandManager(plugin);
         setUpEvents();
     }
@@ -30,5 +32,9 @@ public final class MushroomBlockViewer extends JavaPlugin {
         plugin.getServer().getPluginManager().registerEvents(new BlockPlace(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new BlockPhysics(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new BlockCopy(), plugin);
+    }
+
+    public ConfigManager getConfigManager() {
+        return configManager;
     }
 }
