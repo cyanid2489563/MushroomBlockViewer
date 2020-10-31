@@ -5,8 +5,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
-import team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer;
-import team.dungeoncraft.mushroomblockviewer.customblock.CustomBlockManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
