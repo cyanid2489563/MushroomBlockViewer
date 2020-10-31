@@ -6,7 +6,6 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 import team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer;
-import team.dungeoncraft.mushroomblockviewer.customblock.CustomBlock;
 import team.dungeoncraft.mushroomblockviewer.customblock.CustomBlockManager;
 
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ import java.util.List;
 
 public final class CommandTabCompleter implements TabCompleter {
 
-    private static final CustomBlockManager customBlockManager = MushroomBlockViewer.plugin.getCustomBlockManager();
     private static final List<String> COMMANDS = Arrays.asList("menu", "help", "blockedit");
     private static final List<String> BLOCK_EDIT = Arrays.asList("name", "lore");
     private static final List<String> BLANK = Arrays.asList("", "");
