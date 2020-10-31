@@ -2,6 +2,7 @@ package team.dungeoncraft.mushroomblockviewer;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import team.dungeoncraft.mushroomblockviewer.command.CommandManager;
+import team.dungeoncraft.mushroomblockviewer.customblock.CustomBlockManager;
 import team.dungeoncraft.mushroomblockviewer.event.BlockCopy;
 import team.dungeoncraft.mushroomblockviewer.event.BlockPhysics;
 import team.dungeoncraft.mushroomblockviewer.event.BlockPlace;
@@ -10,6 +11,7 @@ public final class MushroomBlockViewer extends JavaPlugin {
 
     public static MushroomBlockViewer plugin;
     private ConfigManager configManager;
+    private CustomBlockManager customBlockManager;
 
     @Override
     public void onLoad() {
@@ -19,6 +21,7 @@ public final class MushroomBlockViewer extends JavaPlugin {
     @Override
     public void onEnable() {
         configManager = new ConfigManager();
+        customBlockManager = new CustomBlockManager();
         new CommandManager(plugin);
         setUpEvents();
     }
@@ -36,5 +39,9 @@ public final class MushroomBlockViewer extends JavaPlugin {
 
     public ConfigManager getConfigManager() {
         return configManager;
+    }
+
+    public CustomBlockManager getCustomBlockManager() {
+        return customBlockManager;
     }
 }

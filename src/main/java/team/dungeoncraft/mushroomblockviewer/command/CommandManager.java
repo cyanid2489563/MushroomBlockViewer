@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import team.dungeoncraft.mushroomblockviewer.MushroomBlockViewer;
+import team.dungeoncraft.mushroomblockviewer.command.commands.BlockEdit;
 import team.dungeoncraft.mushroomblockviewer.command.commands.Menu;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public final class CommandManager implements CommandExecutor {
 
     private void setUpCommand() {
         subCommands.add(new Menu());
+        subCommands.add(new BlockEdit());
     }
 
     @Override

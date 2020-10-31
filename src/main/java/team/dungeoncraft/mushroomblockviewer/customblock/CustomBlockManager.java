@@ -32,5 +32,15 @@ public final class CustomBlockManager {
 
     public void changeCustomBlockName(int id, String name) {
         getCustomBlock(id).setName(name);
+        saveCustomBlocks();
+    }
+    
+    public void setCustomBlockLore(int id, List<String> lore) {
+        getCustomBlock(id).setLore(lore);
+        saveCustomBlocks();
+    }
+
+    private void saveCustomBlocks() {
+        MushroomBlockViewer.plugin.getConfigManager().save(customBlocks);
     }
 }

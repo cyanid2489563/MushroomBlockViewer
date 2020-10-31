@@ -16,7 +16,7 @@ public final class Menu {
 
     private final Gui gui = new Gui(MushroomBlockViewer.plugin, 6, "蘑菇方塊檢視器");
     private int offset = 1;
-    private final CustomBlockManager customBlockManager = new CustomBlockManager();
+    private final CustomBlockManager customBlockManager = MushroomBlockViewer.plugin.getCustomBlockManager();
 
     public Menu() {
         setUpMenu();
